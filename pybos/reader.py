@@ -180,8 +180,8 @@ def reader(
     dataset.y.attrs["units"] = unit
     dataset.U.attrs["units"] = unit
     dataset.V.attrs["units"] = unit
-    dataset.U.attrs["long_name"] = "Displacement along x"
-    dataset.V.attrs["long_name"] = "Displacement along y"
+    dataset.U.attrs["long_name"] = "Desplazamiento en x"
+    dataset.V.attrs["long_name"] = "Desplazamiento en y"
 
     return dataset
 

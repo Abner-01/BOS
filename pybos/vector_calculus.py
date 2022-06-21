@@ -29,8 +29,8 @@ def divergence(
         div = div.where(abs(data[U]) > 1e-30, 0.0)
 
     div.name = "div"
-    div.attrs["units"] = "dimensionless"
-    div.attrs["long_name"] = "Displacement divergence"
+    div.attrs["units"] = "Sin dimension"
+    div.attrs["long_name"] = "Desplazamiento de divergencia"
 
     if verbose:
         print(f"The divergence is computed as : div = d({U})/dx + d({V})/dx")
@@ -48,14 +48,14 @@ def divergence(
 
 def amplitude(data: xr.Dataset, U: str = "U", V: str = "V", verbose: bool = False) -> xr.DataArray:
     """Compute the amplitude of a 2D vector field."""
-    norm = xr.ufuncs.hypot(data[U], data[V])  # type: ignore # pylint: disable=no-member
-    assert isinstance(norm, xr.DataArray)
+    norma = xr.ufuncs.hypot(data[U], data[V])  # type: ignore # pylint: disable=no-member
+    assert isinstance(norma, xr.DataArray)
 
-    norm.name = "norm"
-    norm.attrs["units"] = data[U].units
-    norm.attrs["long_name"] = "Displacement amplitude"
+    norma.name = "norm"
+    norma.attrs["units"] = data[U].units
+    norma.attrs["long_name"] = "Magnitud del desplazamiento "
 
     if verbose:
-        print(f"mean(amplitude)={float(norm.mean())}")
+        print(f"mean(amplitude)={float(norma.mean())}")
 
-    return norm
+    return norma

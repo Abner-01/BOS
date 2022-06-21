@@ -140,6 +140,6 @@ def solve_BOS(
     idz.y.attrs = divergence.y.attrs
 
     idz.attrs["units"] = divergence.x.units
-    idz.attrs["long_name"] = "Integral of the refractive index"
+    idz.attrs["long_name"] = "Integral del índice de refracción"
 
     return idz
